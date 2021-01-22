@@ -172,13 +172,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             android:label="@string/account_ringtone_title"
             android:theme="@style/Theme.MaterialComponents.DayNight.Dialog.MinWidth" />
 
-<!--        <receiver android:name="ch.seme.service.OutgoingCallHandler">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />-->
+        <receiver android:name="ch.seme.service.OutgoingCallHandler">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
 
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
         <receiver android:name="ch.seme.service.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -217,7 +217,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             android:theme="@style/AppTheme.ActionBar.Transparent"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -225,7 +225,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 <data android:scheme="sip" />
             </intent-filter>
             <intent-filter>
-<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -233,7 +233,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 <data android:scheme="tel" />
             </intent-filter>
             <intent-filter>
-<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -244,7 +244,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     android:scheme="https" />
             </intent-filter>
             <intent-filter>
-<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -255,7 +255,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     android:scheme="http" />
             </intent-filter>
             <intent-filter>
-<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.CALL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -263,7 +263,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 <data android:scheme="ring" />
             </intent-filter>
             <intent-filter>
-<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.CALL" />
                 <action android:name="android.intent.action.DIAL" />
 
                 <category android:name="android.intent.category.DEFAULT" />

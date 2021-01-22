@@ -111,6 +111,9 @@ public class SmartListFragment extends BaseSupportFragment<SmartListPresenter> i
         inflater.inflate(R.menu.smartlist_menu, menu);
         mSearchMenuItem = menu.findItem(R.id.menu_contact_search);
         mDialpadMenuItem = menu.findItem(R.id.menu_contact_dial);
+        //Added by slark
+        mSearchMenuItem.setVisible(false);
+
         mSearchMenuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
@@ -291,7 +294,8 @@ public class SmartListFragment extends BaseSupportFragment<SmartListPresenter> i
         if (null != menu) {
             MenuItem overflowMenuItem = menu.findItem(R.id.menu_overflow);
             if (null != overflowMenuItem) {
-                overflowMenuItem.setVisible(visible);
+                //Modified by slark
+                //overflowMenuItem.setVisible(visible);
             }
         }
     }

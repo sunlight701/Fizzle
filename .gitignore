@@ -18,7 +18,6 @@ ID
 local.properties
 .externalToolBuilders/
 .settings/org.eclipse.ltk.core.refactoring.prefs
-gradle/wrapper/
 
 ant.properties
 *.keystore

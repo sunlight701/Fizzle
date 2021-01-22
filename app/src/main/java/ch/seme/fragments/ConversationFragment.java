@@ -844,6 +844,12 @@ public class ConversationFragment extends BaseSupportFragment<ConversationPresen
             case android.R.id.home:
                 startActivity(new Intent(getActivity(), HomeActivity.class));
                 return true;
+            case R.id.conv_action_audiocall:
+                presenter.goToCall(true);
+                return true;
+            case R.id.conv_action_videocall:
+                presenter.goToCall(false);
+                return true;
             case R.id.conv_contact_details:
                 presenter.openContact();
                 return true;
