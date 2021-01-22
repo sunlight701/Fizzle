@@ -1,0 +1,136 @@
+apply plugin: 'com.android.application'
+
+def buildFirebase = project.hasProperty('buildFirebase') || getGradle().getStartParameter().getTaskRequests().toString().contains('Firebase')
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
+    ndkVersion "21.3.6528147"
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 278
+        versionName "20210122-01"
+    }
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/java']
+            jniLibs.srcDir 'src/main/libs'
+            jni.srcDirs = []
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            packagingOptions{
+                doNotStrip "*/armeabi/*.so"
+                doNotStrip "*/armeabi-v7a/*.so"
+                doNotStrip "*/arm64-v8a/*.so"
+                doNotStrip "*/x86/*.so"
+                doNotStrip "*/x86_64/*.so"
+            }
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    flavorDimensions "push"
+    productFlavors {
+        noPush {
+            dimension "push"
+        }
+        withFirebase {
+            dimension "push"
+        }
+    }
+    signingConfigs {
+        config {
+            keyAlias 'ring'
+            storeFile file('../keystore.bin')
+        }
+    }
+    lintOptions {
+        disable 'MissingTranslation'
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            def sp = archs.split(',')
+            include(sp)
+            universalApk true
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    def dagger_version = '2.30.1'
+
+    implementation fileTree(include: '*.aar', dir: 'libs')
+    implementation project(':libringclient')
+
+    implementation 'androidx.core:core:1.3.2'
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.legacy:legacy-support-core-utils:1.0.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.preference:preference:1.1.1"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.leanback:leanback:1.1.0-beta01"
+    implementation "androidx.leanback:leanback-preference:1.1.0-beta01"
+    implementation 'androidx.tvprovider:tvprovider:1.0.0'
+    implementation "androidx.media:media:1.2.1"
+    implementation "androidx.percentlayout:percentlayout:1.0.0"
+    implementation "com.google.android.material:material:1.2.1"
+    implementation 'com.google.android:flexbox:1.1.1'
+    implementation 'org.osmdroid:osmdroid-android:6.1.8'
+
+    // ORM
+    implementation 'com.j256.ormlite:ormlite-android:5.3'
+
+    // Barcode scanning
+    implementation('com.journeyapps:zxing-android-embedded:4.0.2@aar') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.3'
+
+    // RxBindings
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.1.0'
+
+    implementation 'com.rodolfonavalon:ShapeRippleLibrary:1.0.0'
+
+    // Dagger dependency injection
+    implementation "com.google.dagger:dagger:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    implementation 'com.jsibbold:zoomage:1.2.0'
+
+    withFirebaseImplementation('com.google.firebase:firebase-messaging:21.0.1') {
+        exclude group: 'com.google.firebase', module: 'firebase-core'
+        exclude group: 'com.google.firebase', module: 'firebase-analytics'
+        exclude group: 'com.google.firebase', module: 'firebase-measurement-connector'
+    }
+}
+
+if (buildFirebase) {
+    println 'apply plugin ' + buildFirebase
+    apply plugin: 'com.google.gms.google-services'
+}

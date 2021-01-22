@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="pref_category_network">ネットワーク</string>
+  <string name="pref_category_contacts">連絡先</string>
+  <string name="pref_category_video">動画</string>
+  <string name="pref_category_system">システム</string>
+  <string name="pref_category_privacy">プライバシー</string>
+  <string name="pref_mobileData_title">モバイル通信</string>
+  <string name="pref_mobileData_summary">Wi-Fiに加えて3G / LTEでの使用をFizzleに許可する</string>
+  <string name="pref_pushNotifications_title">プッシュ通知</string>
+  <string name="pref_pushNotifications_summary">Google のサーバーを使って通話とメッセージを受信します</string>
+  <string name="pref_video_advanced_title">ビデオの高度な設定</string>
+  <string name="pref_video_advanced_summary">動画のビットレートと解像度の変更、実験的な機能を試す</string>
+  <string name="pref_hd_summary">HDビデオの送信を有効にする</string>
+  <string name="pref_hwEncode_title">高速エンコードを有効にする</string>
+  <string name="pref_hwEncode_summary">実験的機能</string>
+  <string name="pref_videoBitrate_title">ビデオのビットレート</string>
+  <string name="pref_videoBitrate_summary">デフォルトの送信ビデオビットレート (KB/s) を選択</string>
+  <string name="pref_videoResolution_title">ビデオの解像度</string>
+  <string name="pref_videoResolution_summary">送信するビデオのデフォルト解像度を選択</string>
+  <string name="pref_systemContacts_title">システムの連絡先を使用する</string>
+  <string name="pref_systemContacts_summary">システムの連絡先を使用して通話先の詳細を表示します。</string>
+  <string name="pref_systemDialer_title">Fizzleを使用して発信する</string>
+  <string name="pref_systemDialer_summary">可能な場合、Fizzleを使用して発信する</string>
+  <string name="pref_startOnBoot_title">起動時にFizzleを開始</string>
+  <string name="pref_startOnBoot_summary">端末の起動時にバックグラウンドで Fizzle を実行します</string>
+  <string name="pref_clearHistory_title">履歴をクリア</string>
+  <string name="pref_clearHistory_summary">すべての会話履歴を消去します。この操作は元に戻せません。</string>
+  <string name="pref_blackList_title">着信拒否一覧</string>
+  <string name="pref_delete_account_title">アカウントの削除</string>
+  <string name="pref_persistNotification_title">バックグラウンドで実行</string>
+  <string name="pref_persistNotification_summary">通話とメッセージの受信をバックグラウンドでも許可する</string>
+  <!--Plugin-->
+  <string name="pref_plugins_title">プラグイン</string>
+  <string name="pref_plugins_summary">プラグインを有効にしてパラメータを設定</string>
+  <string name="fab_plugins_add">新しいプラグインを追加</string>
+  <string name="plugin_uninstall_title">プラグインをアンインストールしますか？</string>
+  <string name="plugin_reset_preferences">プラグインの設定をリセット</string>
+  <string name="plugin_reset_preferences_summary">プラグインの設定がデフォルトになります</string>
+  <string name="plugin_reset_preferences_ask">プラグインの設定をリセットしますか？</string>
+  <string name="plugin_successfully_installed">プラグイン <b>%1$s</b> が正しくインストールされました</string>
+  <string name="plugin_install_failure">次のプラグインのインストールに失敗しました: <b>%1$s</b></string>
+  <string name="plugin_recent_version_exception">新しいバージョンがインストール済みです: <b>%1$s</b></string>
+  <string name="plugin_same_version_exception">同じバージョンの <b>%1$s</b> がインストール済みです</string>
+  <string name="plugin_force_install">強制インストール</string>
+  <string name="plugin_path_image_add">新しい画像を追加</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_network">Network</string>
+    <string name="pref_category_contacts">Contacts</string>
+    <string name="pref_category_video">Video</string>
+    <string name="pref_category_system">System</string>
+    <string name="pref_category_privacy">Privacy</string>
+
+    <string name="pref_mobileData_title">Mobile data</string>
+    <string name="pref_mobileData_summary">Allow Fizzle on 3G/LTE networks additionally to Wi-Fi</string>
+
+    <string name="pref_pushNotifications_title">Push notifications</string>
+    <string name="pref_pushNotifications_summary">Use Google servers to allow receiving calls/messages in the background</string>
+
+    <string name="pref_video_advanced_title">Advanced video settings</string>
+    <string name="pref_video_advanced_summary">Change the video bitrate, resolution, as well as access experimental features</string>
+
+    <string name="pref_hd_summary">Enable sending HD video</string>
+    <string name="label_hd_720p" translatable="false">HD 720P</string>
+
+    <string name="pref_hwEncode_title">Enable accelerated encoding</string>
+    <string name="pref_hwEncode_summary">Experimental feature</string>
+    <string name="pref_videoBitrate_title">Video bitrate</string>
+    <string name="pref_videoBitrate_summary">Select default outgoing video bitrate (KB/s)</string>
+    <string name="pref_videoResolution_title">Video resolution</string>
+    <string name="pref_videoResolution_summary">Select default outgoing video resolution</string>
+
+    <string name="pref_systemContacts_key" translatable="false">pref_systemContacts</string>
+    <string name="pref_systemContacts_title">Use system contacts</string>
+    <string name="pref_systemContacts_summary">Use system contacts to show caller details.</string>
+
+    <string name="pref_systemCamera_key" translatable="false">pref_systemCamera</string>
+
+    <string name="pref_systemDialer_key" translatable="false">pref_systemDialer</string>
+    <string name="pref_systemDialer_title">Place system calls using Fizzle</string>
+    <string name="pref_systemDialer_summary">Use Fizzle to place system calls when possible.</string>
+
+    <string name="pref_startOnBoot_title">Start Fizzle on startup</string>
+    <string name="pref_startOnBoot_summary">Run Fizzle in the background when the system starts.</string>
+
+    <string name="pref_clearHistory_title">Clear history</string>
+    <string name="pref_clearHistory_summary">Clear all the conversations history. This action can\'t be undone.</string>
+
+    <string name="pref_blackList_title">Block list</string>
+    <string name="pref_blackList_summary">Check your block list.</string>
+
+    <string name="pref_delete_account_title">Delete account</string>
+    <string name="pref_delete_account_summary">Delete your account from this device</string>
+
+    <string name="pref_persistNotification_title">Run in background</string>
+    <string name="pref_persistNotification_summary">Allow running in background to receive calls and messages.</string>
+
+    <string name="pref_typing_title">Enable typing indicators</string>
+    <string name="pref_typing_summary">Send and receive typing indicators showing that a message is being typed.</string>
+
+    <string name="pref_read_title">Enable read receipts</string>
+    <string name="pref_read_summary">Send and receive receipts indicating that a message have been displayed.</string>
+
+    <!-- Plugin -->
+    <string name="pref_plugins_title">Plugins</string>
+    <string name="pref_plugins_summary">Enable plugins and set their parameters</string>
+    <string name="fab_plugins_add">Add a new plugin</string>
+    <string name="plugin_uninstall_title">Uninstall Plugin ?</string>
+    <string name="plugin_reset_preferences">Reset plugin preferences</string>
+    <string name="plugin_reset_preferences_summary">Your plugin settings will be defaulted</string>
+    <string name="plugin_reset_preferences_ask">Do you want to reset the plugin settings ?</string>
+    <string name="plugin_successfully_installed">Plugin <b>%1$s</b> successfully installed</string>
+    <string name="plugin_install_failure">Failed to install plugin: <b>%1$s</b></string>
+    <string name="plugin_recent_version_exception">You have a more recent version of: <b>%1$s</b></string>
+    <string name="plugin_same_version_exception">You have the same version of <b>%1$s</b> installed</string>
+    <string name="plugin_force_install">force \n install</string>
+    <string name="plugin_path_image_add">Add a new image</string>
+</resources>

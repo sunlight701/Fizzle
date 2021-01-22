@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="pref_category_network">網路</string>
+  <string name="pref_category_contacts">聯絡人</string>
+  <string name="pref_category_video">視訊</string>
+  <string name="pref_category_system">系統</string>
+  <string name="pref_category_privacy">隱私</string>
+  <string name="pref_mobileData_title">行動數據</string>
+  <string name="pref_mobileData_summary">除了 Wi-Fi 之外，允許 Fizzle 在 3G/LTE 網路上使用</string>
+  <string name="pref_pushNotifications_title">推播通知</string>
+  <string name="pref_pushNotifications_summary">使用 Google 的伺服器以讓您可以在背景收到通話／訊息</string>
+  <string name="pref_video_advanced_title">進階視訊設定</string>
+  <string name="pref_video_advanced_summary">變更視訊位元率、解析度並存取實驗性功能</string>
+  <string name="pref_hd_summary">啟用傳送高畫質視訊</string>
+  <string name="pref_hwEncode_title">啟用加速編碼</string>
+  <string name="pref_hwEncode_summary">實驗性功能</string>
+  <string name="pref_videoBitrate_title">視訊位元率</string>
+  <string name="pref_videoBitrate_summary">選取預設的傳出視訊位元率 (KB/s)</string>
+  <string name="pref_videoResolution_title">視訊解析度</string>
+  <string name="pref_videoResolution_summary">選取預設的傳出視訊解析度</string>
+  <string name="pref_systemContacts_title">使用系統聯絡人</string>
+  <string name="pref_systemContacts_summary">使用系統聯絡人顯示呼叫方的詳細資料</string>
+  <string name="pref_systemDialer_title">使用 Fizzle 撥打系統的電話功能</string>
+  <string name="pref_systemDialer_summary">當可用時，使用 Fizzle 撥打系統的電話</string>
+  <string name="pref_startOnBoot_title">開機時啟動 Fizzle</string>
+  <string name="pref_startOnBoot_summary">開機時在背景啟動 Fizzle</string>
+  <string name="pref_clearHistory_title">清除記錄</string>
+  <string name="pref_clearHistory_summary">清除所有對話歷史。此動作無法復原。</string>
+  <string name="pref_blackList_title">封鎖清單</string>
+  <string name="pref_blackList_summary">檢查您的封鎖清單。</string>
+  <string name="pref_delete_account_title">刪除帳號</string>
+  <string name="pref_delete_account_summary">從此裝置刪除您的帳號</string>
+  <string name="pref_persistNotification_title">在背景執行</string>
+  <string name="pref_persistNotification_summary">允許在背景中執行以接收通話與訊息。</string>
+  <string name="pref_typing_title">啟用輸入指示器</string>
+  <string name="pref_typing_summary">傳送與接收輸入指示器，表明正在輸入訊息。</string>
+  <string name="pref_read_title">啟用讀取回條</string>
+  <string name="pref_read_summary">傳送與接收指示訊息已顯示的回條。</string>
+  <!--Plugin-->
+  <string name="pref_plugins_title">外掛程式</string>
+  <string name="pref_plugins_summary">啟用外掛程式並設定其參數</string>
+  <string name="fab_plugins_add">加入新的外掛程式</string>
+  <string name="plugin_uninstall_title">解除安裝外掛程式？</string>
+  <string name="plugin_reset_preferences">重設外掛程式偏好設定</string>
+  <string name="plugin_reset_preferences_summary">您的外掛程式設定將會變成預設值</string>
+  <string name="plugin_reset_preferences_ask">您想要重設外掛程式設定嗎？</string>
+  <string name="plugin_successfully_installed">外掛程式 <b>%1$s</b> 已成功安裝</string>
+  <string name="plugin_install_failure">安裝外掛程式失敗： <b>%1$s</b></string>
+  <string name="plugin_recent_version_exception">您有更新的版本可供安裝： <b>%1$s</b></string>
+  <string name="plugin_same_version_exception">您已安裝了相同的版本 <b>%1$s</b></string>
+  <string name="plugin_force_install">強制 \n 安裝</string>
+  <string name="plugin_path_image_add">新增新圖片</string>
+</resources>

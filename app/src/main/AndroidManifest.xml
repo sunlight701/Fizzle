@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Copyright (C) 2004-2020 Savoir-faire Linux Inc.
+
+Author: 	Alexandre Lision <alexandre.lision@savoirfairelinux.com>
+			Adrien Beraud <adrien.beraud@savoirfairelinux.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ch.seme"
+    android:installLocation="auto">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
+
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:banner="@drawable/fizzle_banner"
+        android:hasFragileUserData="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:resizeableActivity="true"
+        android:supportsRtl="true"
+        tools:ignore="UnusedAttribute"
+        tools:replace="android:allowBackup">
+        <!--
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc"/>
+        -->
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="true" />
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false" />
+
+        <activity
+            android:name="ch.seme.client.HomeActivity"
+            android:configChanges="screenSize|screenLayout|smallestScreenSize"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.Navigation"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="sip" />
+                <data android:scheme="tel" />
+                <data
+                    android:host="ring.cx"
+                    android:pathPrefix="/id/"
+                    android:scheme="https" />
+                <data
+                    android:host="ring.cx"
+                    android:pathPrefix="/id/"
+                    android:scheme="http" />
+                <data android:scheme="ring" />
+                <data android:scheme="fizzle" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="ch.seme.client.ShareActivity"
+            android:label="@string/title_share_with"
+            android:icon="@mipmap/ic_launcher"
+            android:parentActivityName="ch.seme.client.HomeActivity"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.chooser.chooser_target_service"
+                android:value=".services.FizzleChooserTargetService" />
+        </activity>
+        <activity
+            android:name="ch.seme.account.AccountWizardActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:theme="@style/AppThemeBase.Light"
+            android:icon="@mipmap/ic_launcher"
+            android:resizeableActivity="true"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name="ch.seme.client.RingtoneActivity"
+            android:configChanges="screenSize|screenLayout|smallestScreenSize"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/account_ringtone_title"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Dialog.MinWidth" />
+
+<!--        <receiver android:name="ch.seme.service.OutgoingCallHandler">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />-->
+
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+        <receiver android:name="ch.seme.service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="ch.seme.service.CallNotificationService"
+            android:description="@string/call_service_description"
+            android:exported="false"
+            android:foregroundServiceType="phoneCall|mediaProjection|camera|microphone" />
+        <service
+            android:name="ch.seme.services.DataTransferService"
+            android:description="@string/data_transfer_service_description"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        <service
+            android:name="ch.seme.services.SyncService"
+            android:description="@string/data_transfer_service_description"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        <service
+            android:name="ch.seme.services.LocationSharingService"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+
+        <activity
+            android:name="ch.seme.client.CallActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:label="@string/app_name"
+            android:resizeableActivity="true"
+            android:showOnLockScreen="true"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+<!--                <action android:name="android.intent.action.CALL" />-->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="sip" />
+            </intent-filter>
+            <intent-filter>
+<!--                <action android:name="android.intent.action.CALL" />-->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter>
+<!--                <action android:name="android.intent.action.CALL" />-->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="ring.cx"
+                    android:pathPrefix="/id/"
+                    android:scheme="https" />
+            </intent-filter>
+            <intent-filter>
+<!--                <action android:name="android.intent.action.CALL" />-->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="ring.cx"
+                    android:pathPrefix="/id/"
+                    android:scheme="http" />
+            </intent-filter>
+            <intent-filter>
+<!--                <action android:name="android.intent.action.CALL" />-->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="ring" />
+            </intent-filter>
+            <intent-filter>
+<!--                <action android:name="android.intent.action.CALL" />-->
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/phone" />
+                <data android:mimeType="vnd.android.cursor.item/phone_v2" />
+                <data android:mimeType="vnd.android.cursor.item/person" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ch.seme.client.ConversationActivity"
+            android:allowEmbedded="true"
+            android:configChanges="screenSize|screenLayout|smallestScreenSize"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:parentActivityName="ch.seme.client.HomeActivity"
+            android:resizeableActivity="true"
+            android:theme="@style/AppTheme.Fullscreen"
+            android:windowSoftInputMode="adjustResize" />
+
+        <service
+            android:name="ch.seme.service.DRingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name=".service.DRingService" />
+            </intent-filter>
+        </service>
+
+        <!-- AndroidTV section -->
+        <activity
+            android:name="ch.seme.tv.main.HomeActivity"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/Theme.Fizzle.Leanback.Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="fizzletv"
+                    android:host="ch.seme"
+                    android:path="/home" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name="ch.seme.tv.main.ChannelActionHandler"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.media.tv.ACTION_INITIALIZE_PROGRAMS" />
+                <action android:name="android.media.tv.ACTION_PREVIEW_PROGRAM_BROWSABLE_DISABLED" />
+                <action android:name="android.media.tv.ACTION_PREVIEW_PROGRAM_ADDED_TO_WATCH_NEXT" />
+                <action android:name="android.media.tv.ACTION_WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="ch.seme.tv.account.TVAccountWizard"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="ch.seme.tv.search.SearchActivity"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/Theme.Leanback" />
+        <activity
+            android:name="ch.seme.tv.about.AboutActivity"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/Theme.Leanback" />
+        <activity
+            android:name="ch.seme.tv.account.TVShareActivity"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/Theme.Ring.Leanback" />
+        <activity
+            android:name="ch.seme.tv.call.TVCallActivity"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:resizeableActivity="true"
+            android:showOnLockScreen="true"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="ch.seme.action.CALL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ch.seme.tv.camera.CustomCameraActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher">
+            <intent-filter>
+                <action android:name="ch.seme.action.CALL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ch.seme.tv.contact.TVContactActivity"
+            android:theme="@style/Theme.Leanback.Details"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="fizzletv"
+                    android:host="ch.seme"
+                    android:pathPrefix="/conversation/" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="ch.seme.tv.account.TVSettingsActivity"
+            android:theme="@style/LeanbackPreferences" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="ch.seme.file_provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="ch.seme.client.MediaViewerActivity"
+            android:exported="false"
+            android:label="@string/title_media_viewer"
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/AppThemeBase.Dark" />
+
+        <service
+            android:name="ch.seme.services.FizzleChooserTargetService"
+            android:label="ChooserTargetService"
+            android:icon="@mipmap/ic_launcher"
+            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="ch.seme.service.FizzleJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="ch.seme.client.ContactDetailsActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:label="@string/conversation_details"
+            android:icon="@mipmap/ic_launcher"
+            android:resizeableActivity="true"
+            android:theme="@style/AppTheme.DarkToolbar"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="ch.seme.client.ConversationSelectionActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:label="Choose a contact or conversation"
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Dialog.Alert"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

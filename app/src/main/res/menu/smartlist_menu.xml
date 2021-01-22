@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ch.seme.client.HomeActivity">
+
+    <item
+        android:id="@+id/menu_contact_search"
+        android:hint="@string/searchbar_hint"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/searchbar_hint"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always" />
+
+    <item
+        android:id="@+id/menu_contact_dial"
+        android:icon="@drawable/baseline_dialpad_24"
+        android:title="@string/dial_number"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <!--
+    Created by Rohith M S from Noun Project
+    Licensed under Creative Commons :
+    http://creativecommons.org/licenses/by/3.0/us/legalcode
+    Used without any modification.
+    -->
+    <item android:id="@+id/menu_settings"
+        app:showAsAction="ifRoom"
+        android:title="@string/menu_item_settings"
+        android:icon="@drawable/baseline_settings_24"/>
+    <item
+        android:id="@+id/menu_overflow"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:title=""
+        app:iconTint="?attr/colorControlNormal"
+        android:visible="false">
+    </item>
+
+</menu>
